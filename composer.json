@@ -1,0 +1,10 @@
+{
+    "name": "drupal/partners_recipe",
+    "description": "Provides a Partner content type for partner and client logos, with a logos block.",
+    "type": "drupal-recipe",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/core": "^11",
+        "drupal/field_group": "^3.6 || ^4"
+    }
+}

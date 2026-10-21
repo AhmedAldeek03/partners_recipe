@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Partner types'
+vid: partner_types
+description: 'For example "Partner", "Client" or "Sponsor".'
+weight: 0
+new_revision: false

@@ -1,0 +1,36 @@
+name: Partners
+description: 'Provides a Partner content type for partner and client logos, with a logos block.'
+type: 'Content type'
+recipes:
+  - core/recipes/image_media_type
+  - core/recipes/content_editor_role
+install:
+  - datetime
+  - field_group
+  - link
+  - media_library
+  - node
+  - path
+  - taxonomy
+  - text
+  - views
+config:
+  strict:
+    - field.storage.node.field_link
+    - field.storage.node.field_media
+    - field.storage.node.field_term
+  import:
+    node:
+      - core.entity_view_mode.node.full
+    image:
+      - image.style.medium
+  actions:
+    user.role.content_editor:
+      grantPermissions:
+        - 'create partner content'
+        - 'edit own partner content'
+        - 'edit any partner content'
+        - 'delete own partner content'
+        - 'delete any partner content'
+        - 'view partner revisions'
+        - 'revert partner revisions'
