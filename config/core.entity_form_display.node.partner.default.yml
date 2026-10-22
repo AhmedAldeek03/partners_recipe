@@ -8,27 +8,44 @@ dependencies:
     - node.type.partner
   module:
     - field_group
+    - length_indicator
     - link
     - media_library
+    - media_library_edit
     - path
 third_party_settings:
   field_group:
-    group_basic_information:
+    group_tabs:
       children:
-        - title
-        - field_link
-        - field_term
-      label: 'Basic information'
+        - group_basic_information
+        - group_media
+      label: Tabs
       region: content
       parent_name: ''
-      weight: 0
-      format_type: details
+      weight: 1
+      format_type: tabs
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_basic_information:
+      children:
+        - field_link
+        - field_term
+      label: 'Basic Information'
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
         description: ''
         required_fields: true
     group_media:
@@ -36,15 +53,15 @@ third_party_settings:
         - field_media
       label: Media
       region: content
-      parent_name: ''
-      weight: 1
-      format_type: details
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: true
+        formatter: closed
         description: ''
         required_fields: true
 id: node.partner.default
@@ -68,20 +85,19 @@ content:
     third_party_settings: {  }
   field_media:
     type: media_library_widget
-    weight: 0
+    weight: 3
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: true
+        edit_form_mode: default
   field_term:
-    type: entity_reference_autocomplete_tags
+    type: options_select
     weight: 2
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -103,7 +119,13 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      length_indicator:
+        indicator: true
+        indicator_opt:
+          optimin: 30
+          optimax: 60
+          tolerance: 10
   uid:
     type: entity_reference_autocomplete
     weight: 20
@@ -114,4 +136,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

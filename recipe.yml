@@ -7,8 +7,10 @@ recipes:
 install:
   - datetime
   - field_group
+  - length_indicator
   - link
   - media_library
+  - media_library_edit
   - node
   - path
   - taxonomy

@@ -14,12 +14,18 @@ Adds a **Partner** content type (`partner`) for partner, client and sponsor logo
 
 ## Conventions
 
-- Fields are named after their field type (`field_text`, `field_media`, `field_term`, …), never after
+- Fields are named after their field type (`field_plain_text`, `field_media`, `field_term`, …), never after
   their purpose or content type, so recipes share them. Shared fields are identical across all our
   recipes, so they can be applied in any order on the same site.
 - Edit forms are grouped into **Basic information** and **Media** sections.
 - View modes: **Default** (full page) and **Card** (listings).
 - The **Content editor** role gets create, edit, delete and revision permissions.
+
+## Edit form
+
+Follows the Seeds conventions: the title on top, then horizontal tabs (**Basic Information** and,
+when the type has media, **Media**). Taxonomy terms use a select list. This type has no page of
+its own, so it has no SEO fields.
 
 ## Requirements
 
